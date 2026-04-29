@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WhatsApp Chat Viewer</title>
+<link href="style.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="app-header">
+  <div class="header-avatar" id="header-avatar">💬</div>
+  <div class="header-info">
+    <div class="header-name" id="header-name">WhatsApp Viewer</div>
+    <div class="header-sub" id="header-sub">Carga un archivo .txt exportado de WhatsApp</div>
+  </div>
+  <button class="btn-new" id="btn-new" style="display:none">📂 Nuevo chat</button>
+</header>
+
+<!-- DROP SCREEN -->
+<div id="drop-screen">
+  <div class="drop-zone" id="drop-zone">
+    <div class="drop-icon">📱</div>
+    <div class="drop-title">Arrastra tu chat de WhatsApp</div>
+    <div class="drop-sub">Archivo .txt exportado desde WhatsApp<br>Soporta grupos y conversaciones individuales</div>
+    <button class="btn-upload" id="btn-open">Seleccionar archivo</button>
+  </div>
+  <p class="drop-hint">
+    📤 En WhatsApp → Conversación → Más opciones → Exportar chat → Sin archivos multimedia → guarda el .txt
+  </p>
+  <input type="file" id="file-input" accept=".txt">
+</div>
+
+<!-- LOADING -->
+<div id="loading">
+  <div class="spinner"></div>
+  <span>Procesando conversación...</span>
+</div>
+
+<!-- CHAT SCREEN -->
+<div id="chat-screen">
+  <div class="participants" id="participants-bar" style="display:none"></div>
+  <div class="chat-body" id="chat-body"></div>
+  <div class="stats-bar" id="stats-bar"></div>
+</div>
+
+<!-- SCROLL BTN -->
+<div id="scroll-btn" title="Ir al final">↓</div>
+
+<script src="app.js">
+
+</script>
+</body>
+</html>
