@@ -386,3 +386,162 @@
     .app-header { padding: 10px 14px; }
     .chat-body { padding: 12px 10px 20px; }
   }
+
+  /* ── TEMA CLARO ── */
+  :root[data-theme="light"] {
+    --bg-app: #e5ddd5;
+    --bg-chat: #efeae2;
+    --bg-panel: #f0f2f5;
+    --bg-input: #ffffff;
+    --bg-msg-out: #d9fdd3;
+    --bg-msg-in: #ffffff;
+    --bg-system: rgba(255,255,255,0.85);
+    --text-primary: #111b21;
+    --text-secondary: #667781;
+    --text-timestamp: #667781;
+    --accent: #008069;
+    --accent-hover: #00a884;
+    --border: #d1d7db;
+    --shadow: 0 1px 2px rgba(0,0,0,0.15);
+  }
+  :root[data-theme="light"] .msg-row.in .bubble::before {
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 13'%3E%3Cpath fill='%23ffffff' d='M0 0 C3 0 8 5 8 13 L8 0 Z'/%3E%3C/svg%3E") no-repeat;
+  }
+  :root[data-theme="light"] .msg-row.out .bubble::before {
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 13'%3E%3Cpath fill='%23d9fdd3' d='M8 0 C5 0 0 5 0 13 L0 0 Z'/%3E%3C/svg%3E") no-repeat;
+  }
+
+  /* ── BOTONES de icono en header ── */
+  .icon-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 18px;
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background .15s;
+  }
+  .icon-btn:hover { background: var(--bg-input); }
+
+  /* ── BARRA de búsqueda ── */
+  #search-bar {
+    display: none;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: var(--bg-panel);
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+  #search-bar.open { display: flex; }
+  #search-input {
+    flex: 1;
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    border-radius: 18px;
+    padding: 8px 14px;
+    font-size: 14px;
+    font-family: inherit;
+    outline: none;
+  }
+  #search-input:focus { border-color: var(--accent); }
+  #search-count {
+    font-size: 12px; color: var(--text-secondary);
+    min-width: 56px; text-align: center;
+  }
+  #search-bar button {
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 11px;
+  }
+  #search-bar button:hover { border-color: var(--accent); color: var(--accent); }
+
+  mark {
+    background: #ffd54f;
+    color: #111;
+    border-radius: 2px;
+    padding: 0 1px;
+  }
+  mark.active { background: #ff9800; color: #fff; }
+
+  /* ── BOTÓN secundario (carpeta) ── */
+  .btn-upload.secondary {
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    margin-top: 10px;
+    padding: 10px 22px;
+  }
+  .btn-upload.secondary:hover { background: rgba(0,168,132,.1); }
+  #folder-input { display: none; }
+  .drop-hint .privacy { color: var(--accent); font-weight: 600; }
+
+  /* ── LINKS dentro de mensajes ── */
+  .msg-text a { color: #53bdeb; word-break: break-all; }
+  :root[data-theme="light"] .msg-text a { color: #027eb5; }
+
+  /* ── MARCADORES editado / eliminado ── */
+  .edited { font-size: 11px; color: var(--text-secondary); font-style: italic; }
+  .msg-text.deleted { font-style: italic; color: var(--text-secondary); }
+  .tick { color: #53bdeb; font-size: 13px; }
+
+  /* ── MULTIMEDIA ── */
+  .media-link { display: block; }
+  .media-img {
+    max-width: min(280px, 65vw);
+    max-height: 340px;
+    border-radius: 8px;
+    display: block;
+    cursor: pointer;
+    margin-bottom: 3px;
+  }
+  .media-img.sticker {
+    max-width: 130px; max-height: 130px;
+    background: transparent;
+  }
+  .media-audio {
+    width: min(260px, 60vw);
+    height: 40px;
+    margin: 2px 0;
+  }
+  .media-video {
+    max-width: min(280px, 65vw);
+    max-height: 340px;
+    border-radius: 8px;
+    display: block;
+    margin-bottom: 3px;
+  }
+  .media-file {
+    display: flex; align-items: center; gap: 8px;
+    padding: 8px 12px;
+    background: rgba(255,255,255,.06);
+    border-radius: 6px;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .media-file:hover { background: rgba(255,255,255,.12); }
+
+  /* ── CHIPS de participante (clic = "yo") ── */
+  .participants { align-items: center; }
+  .participants-hint {
+    font-size: 11px; color: var(--text-secondary);
+    margin-right: 4px;
+  }
+  .chip {
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all .15s;
+  }
+  .chip:hover { border-color: var(--accent); }
+  .chip.me { background: var(--accent); color: #fff; }
+  .chip.me .chip-dot { box-shadow: 0 0 0 2px rgba(255,255,255,.6); }
+  .chip b { font-weight: 800; }

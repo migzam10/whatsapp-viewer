@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,29 +13,43 @@
   <div class="header-avatar" id="header-avatar">💬</div>
   <div class="header-info">
     <div class="header-name" id="header-name">WhatsApp Viewer</div>
-    <div class="header-sub" id="header-sub">Carga un archivo .txt exportado de WhatsApp</div>
+    <div class="header-sub" id="header-sub">Carga un archivo .txt o .zip exportado de WhatsApp</div>
   </div>
-  <button class="btn-new" id="btn-new" style="display:none">📂 Nuevo chat</button>
+  <button class="icon-btn" id="btn-search" title="Buscar" style="display:none">🔍</button>
+  <button class="icon-btn" id="btn-theme" title="Cambiar tema">☀️</button>
+  <button class="btn-new" id="btn-new" style="display:none">📂 Nuevo</button>
 </header>
+
+<!-- SEARCH BAR -->
+<div id="search-bar">
+  <input type="text" id="search-input" placeholder="Buscar en la conversación…" autocomplete="off">
+  <span id="search-count"></span>
+  <button id="search-prev" title="Anterior">▲</button>
+  <button id="search-next" title="Siguiente">▼</button>
+</div>
 
 <!-- DROP SCREEN -->
 <div id="drop-screen">
   <div class="drop-zone" id="drop-zone">
     <div class="drop-icon">📱</div>
     <div class="drop-title">Arrastra tu chat de WhatsApp</div>
-    <div class="drop-sub">Archivo .txt exportado desde WhatsApp<br>Soporta grupos y conversaciones individuales</div>
+    <div class="drop-sub">Archivo <b>.txt</b> o <b>.zip</b> (con multimedia)<br>Soporta grupos y conversaciones individuales</div>
     <button class="btn-upload" id="btn-open">Seleccionar archivo</button>
+    <button class="btn-upload secondary" id="btn-folder">📁 Cargar carpeta</button>
   </div>
   <p class="drop-hint">
-    📤 En WhatsApp → Conversación → Más opciones → Exportar chat → Sin archivos multimedia → guarda el .txt
+    📤 En WhatsApp → Conversación → Más opciones → Exportar chat.<br>
+    Elige <b>«Con multimedia»</b> para ver fotos y audios, o «Sin multimedia» para solo texto.<br>
+    <span class="privacy">🔒 Todo se procesa en tu navegador. Nada se sube a ningún servidor.</span>
   </p>
-  <input type="file" id="file-input" accept=".txt">
+  <input type="file" id="file-input" accept=".txt,.zip">
+  <input type="file" id="folder-input" webkitdirectory directory multiple>
 </div>
 
 <!-- LOADING -->
 <div id="loading">
   <div class="spinner"></div>
-  <span>Procesando conversación...</span>
+  <span>Procesando conversación…</span>
 </div>
 
 <!-- CHAT SCREEN -->
@@ -48,8 +62,7 @@
 <!-- SCROLL BTN -->
 <div id="scroll-btn" title="Ir al final">↓</div>
 
-<script src="app.js">
-
-</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" defer></script>
+<script src="app.js" defer></script>
 </body>
 </html>

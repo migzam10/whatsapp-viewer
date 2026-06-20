@@ -1,0 +1,9 @@
+# OS
+.DS_Store
+**/.DS_Store
+
+# Chats personales de prueba (NO versionar — contienen datos privados)
+*.zip
+*.txt
+!sample/*.txt
+chat con multimedia/
